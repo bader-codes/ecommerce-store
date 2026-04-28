@@ -1,14 +1,17 @@
+import Navbar from "@/components/navbar/core/MainNav";
+import TopNav from "@/components/navbar/core/TopNav";
+import Footer from "@/components/footer/Footer";
+import { Exo, Exo_2 } from "next/font/google";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const exoSans = Exo({
+  variable: "--font-exo-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const exo_2 = Exo_2({
+  variable: "--font-exo_2-mono",
   subsets: ["latin"],
 });
 
@@ -25,9 +28,24 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${exoSans.className} ${exo_2.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="">
+
+        {/* First Nav */}
+        <TopNav />
+
+        {/* Top navigation bar */}
+        <Navbar />
+
+        {/* Main page content (dynamic per route) */}
+        <div className="h-100 flex justify-center font-bold text-2xl">
+          {children}
+        </div>
+
+        {/* Bottom footer */}
+        <Footer />
+      </body>
     </html>
   );
 }
