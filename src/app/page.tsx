@@ -1,7 +1,17 @@
+import DiscountSection from "@/components/discount/DiscountSection";
+import HighlightCard from "@/components/home/HighlightCard";
+import Categories from "@/components/categories/Categories";
+import HeroCarousel from "@/components/home/HeroCarousel";
+import AllProducts from "@/components/products/AllProducts";
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <h1>Home Page</h1>
-    </div>
+    <>
+      <HeroCarousel />
+      <HighlightCard />
+      <Categories />
+      <DiscountSection />
+      <AllProducts />
+    </>
   );
 }

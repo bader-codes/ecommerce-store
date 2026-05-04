@@ -117,13 +117,71 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Prev Swiper Button */
+.swiper-button-prev {
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 50 !important;
+  height: 100%;
+}
+
+/* Prev Swiper Icon */
+.swiper-button-prev svg {
+  color: #23ad0e;
+  width: 60% !important;
+  height: 60% !important;
+}
+
+/* Next Swiper Button */
+.swiper-button-next {
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 50 !important;
+}
+
+/* Next Swiper Icon */
+.swiper-button-next svg {
+  color: #23ad0e;
+  width: 60% !important;
+  height: 60% !important;
+}
+
+/* Hide Prev & Next Swiper Button On Mobile */
+@media (max-width: 768px) {
+  .swiper-button-prev {
+    display: none !important;
+  }
+
+  .swiper-button-next {
+    display: none !important;
+  }
+}
+
+/* Custom Bullit In Slide */
+.custom-bullet {
+  width: 14px !important;
+  height: 14px !important;
+  background: white !important;
+  display: inline-block !important;
+  transition: all 0.5s ease;
+}
+
+/* active Bullit In Slide */
+.swiper-pagination-bullet-active {
+  width: 40px !important;
+  height: 12px !important;
+  border-radius: 12px !important;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
