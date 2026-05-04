@@ -4,7 +4,7 @@ import { MobileMenu } from "./MobileMenu";
 import NavActions from "../desktop/NavActions"; 
 import SearchBar from "../desktop/SearchBar";
 import NavLinks from "../desktop/NavLinks"; 
-import Logo from "../shared/Logo"; 
+import Logo from "../../shared/components/Logo";
 
 export default function Navbar() {
   return (

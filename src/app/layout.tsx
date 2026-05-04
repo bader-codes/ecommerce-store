@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${exoSans.className} ${exo_2.className} h-full antialiased`}
     >
-      <body className="">
+      <body className="min-h-screen flex flex-col">
 
         {/* First Nav */}
         <TopNav />
@@ -39,9 +39,8 @@ export default function RootLayout({
         <Navbar />
 
         {/* Main page content (dynamic per route) */}
-        <div className="h-100 flex justify-center font-bold text-2xl">
+
           {children}
-        </div>
 
         {/* Bottom footer */}
         <Footer />
