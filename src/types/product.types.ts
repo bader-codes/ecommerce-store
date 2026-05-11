@@ -19,6 +19,24 @@ interface SubCategory {
   category: string;
 }
 
+interface User {
+  _id: string;
+  name: string;
+}
+
+export interface Review {
+  _id: string;
+  review: string;
+  rating: number;
+  product: string;
+  user: User;
+
+  createdAt: string;
+  updatedAt: string;
+
+  __v: number;
+}
+
 export interface Product {
   _id: string;
   id: string;
@@ -43,6 +61,8 @@ export interface Product {
 
   ratingsAverage: number;
   ratingsQuantity: number;
+
+  reviews: Review[];
 
   createdAt: string;
   updatedAt: string;

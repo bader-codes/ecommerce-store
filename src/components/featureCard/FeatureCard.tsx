@@ -1,47 +1,42 @@
-import { FaTruck, FaLock, FaUndo } from "react-icons/fa";
-import { MdHeadsetMic } from "react-icons/md";
 import FeatureCard from "../shared/components/FeatureCard";
+import { FaLock, FaTruck, FaUndo } from "react-icons/fa";
+import { MdHeadsetMic } from "react-icons/md";
+
 
 const features = [
     {
         icon: <FaTruck className="text-xl" />,
         title: "Free Shipping",
         description: "On orders over 500 EGP",
-        className: "bg-white",
-        iconClassName: "bg-blue-50 text-blue-500",
-        mainClass: "shadow-sm transition-shadow duration-300 hover:shadow-md"
+        className: "",
+        iconClassName: "bg-green-200 text-green-600",
     },
     {
         icon: <FaLock className="text-xl" />,
         title: "Secure Payment",
         description: "100% secure transactions",
-        className: "bg-white",
-        iconClassName: "bg-green-50 text-green-500",
-        mainClass: "shadow-sm transition-shadow duration-300 hover:shadow-md"
+        iconClassName: "bg-green-200 text-green-600",
     },
     {
         icon: <FaUndo className="text-xl" />,
         title: "Easy Returns",
         description: "14-day return policy",
-        className: "bg-white",
-        iconClassName: "bg-orange-50 text-orange-500",
-        mainClass: "shadow-sm transition-shadow duration-300 hover:shadow-md"
+        iconClassName: "bg-green-200 text-green-600",
     },
     {
         icon: <MdHeadsetMic className="text-xl font-bold" />,
         title: "24/7 Support",
         description: "Dedicated support team",
-        className: "bg-white",
-        iconClassName: "bg-purple-50 text-purple-500",
-        mainClass: "shadow-sm transition-shadow duration-300 hover:shadow-md"
+        iconClassName: "bg-green-200 text-green-600",
     },
 ];
 
-export default function HighlightCard() {
+
+export default function HomeFeatureCard() {
     return (
-        <section className="py-8 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 p-3">
+        <div className="bg-green-50 border-y border-primary-100">
+            <div className="container mx-auto px-4 py-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {features.map((feature, index) => (
                         <FeatureCard
                             key={index}
@@ -51,11 +46,10 @@ export default function HighlightCard() {
                             iconClassName={feature.iconClassName}
                             className={feature.className}
                             duration={index * 0.5}
-                            mainClass={feature.mainClass}
                         />
                     ))}
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
