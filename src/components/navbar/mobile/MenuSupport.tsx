@@ -6,7 +6,7 @@ export default function MenuSupport() {
     <div className="w-full p-4">
       <Link
         href="/contact"
-        className="flex items-center p-3 gap-2 rounded-md bg-gray-50 hover:bg-green-50 hover:opacity-80 transition-opacity"
+        className="flex items-center p-2 gap-2 rounded-md bg-gray-50 hover:bg-green-50 hover:opacity-80 transition-opacity"
       >
         <div className="bg-green-100 h-9 w-9 rounded-full me-2 flex items-center justify-center">
           <BiSupport size={20} className="text-green-600" />

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function MenuAuth() {
   return (
-    <div className="flex p-4 items-center justify-between w-full">
+    <div className="flex p-2 items-center justify-between w-full">
       <Link href="/login" className="w-full p-2">
         <Button className="bg-green-600 hover:bg-green-800 cursor-pointer text-white w-full p-2 rounded-sm font-semibold text-lg">
           Sign in

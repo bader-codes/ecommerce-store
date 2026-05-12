@@ -4,7 +4,7 @@ import { IoSearch } from "react-icons/io5";
 
 export default function MenuSearch() {
   return (
-    <div className="w-full p-4">
+    <div className="w-full px-4">
       <div className="relative">
         <Input
           placeholder="Search products..."

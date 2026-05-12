@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function MenuLinks() {
   return (
-    <div className="w-full p-4 flex flex-col items-start justify-start">
+    <div className="w-full p-2 flex flex-col items-start justify-start">
       {NAV_LINKS.map((link) => {
         return (
           <SheetClose className="w-full" key={link.label}>

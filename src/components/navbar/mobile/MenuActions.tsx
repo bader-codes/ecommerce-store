@@ -35,7 +35,7 @@ function ActionItem({
 
 export default function MenuActions() {
   return (
-    <div className="flex p-4 flex-col items-center w-full gap-y-2">
+    <div className="flex p-2 flex-col items-center w-full gap-y-2">
       <ActionItem
         href="/whish"
         label="Whish List"

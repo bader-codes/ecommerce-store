@@ -146,6 +146,16 @@
   height: 60% !important;
 }
 
+/* Active Thumb */
+.swiper-slide img {
+  transition: all 0.3s ease;
+}
+
+.swiper-slide-thumb-active img {
+  border-color: #116fe2;
+  transform: scale(0.95);
+}
+
 /* Hide Prev & Next Swiper Button On Mobile */
 @media (max-width: 768px) {
   .swiper-button-prev {
@@ -171,6 +181,24 @@
   width: 40px !important;
   height: 12px !important;
   border-radius: 12px !important;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #05a32d;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #178a03;
 }
 
 @layer base {
