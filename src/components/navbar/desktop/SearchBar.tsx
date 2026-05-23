@@ -6,10 +6,10 @@ import clsx from 'clsx';
 
 // styles
 export const inputBase =
-    "w-full px-5 py-5 rounded-full ring-1 ring-gray-200 text-sm transition-all";
+    "w-full px-5 py-3 pr-12 rounded-full ring-1 ring-gray-200 text-sm transition-all";
 
 export const inputFocus =
-    "focus-visible:ring-green-500 focus-visible:ring-1 focus-visible:outline-none";
+    "focus-visible:ring-green-500/20 focus-visible:border-green-500 focus-visible:ring-2 focus-visible:outline-none";
 
 export const inputPlaceholder =
     "placeholder:text-gray-400 placeholder:text-sm";
@@ -23,8 +23,8 @@ export default function SearchBar() {
                     className={clsx(inputBase, inputFocus, inputPlaceholder)}
                 />
 
-                <Button className="absolute cursor-pointer right-2 top-1/2 h-9 w-9 -translate-y-1/2 bg-green-600 rounded-full">
-                    <IoSearch className="text-white" size={20} />
+                <Button className="absolute cursor-pointer right-1 top-1/2 h-10 w-10 -translate-y-1/2 bg-green-600 rounded-full">
+                    <IoSearch className="text-white w-5! h-5!" />
                 </Button>
             </div>
         </div>
