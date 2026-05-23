@@ -1,10 +1,11 @@
+import HomeFeatureCard from "@/components/featureCard/FeatureCard";
 import Navbar from "@/components/navbar/core/MainNav";
 import TopNav from "@/components/navbar/core/TopNav";
+import { ToastContainer } from 'react-toastify';
 import Footer from "@/components/footer/Footer";
 import { Exo, Exo_2 } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-import HomeFeatureCard from "@/components/featureCard/FeatureCard";
 
 const exoSans = Exo({
   variable: "--font-exo-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html
       lang="en"
@@ -40,11 +42,12 @@ export default function RootLayout({
         <Navbar />
 
         {/* Main page content (dynamic per route) */}
-
         {children}
 
-        {/* Bottom footer */}
+        {/* Toast */}
+        <ToastContainer />
 
+        {/* Bottom footer */}
         <HomeFeatureCard />
 
         <Footer />
