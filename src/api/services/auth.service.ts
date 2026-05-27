@@ -1,6 +1,6 @@
 // auth.service.ts
 import { LoginFormData } from "@/components/auth/login/LoginForm";
-import { RegisterFormData } from "@/components/auth/signup/RegisterSchema";
+import { RegisterFormData } from "@/components/auth/schemas/RegisterSchema";
 import { apiClient } from "../client";
 
 export function login(userData: LoginFormData) {

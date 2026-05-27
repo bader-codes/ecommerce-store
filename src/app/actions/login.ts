@@ -1,10 +1,11 @@
 'use server';
-import { register } from "@/api/services/auth.service";
-import { RegisterFormData } from "@/components/auth/schemas/RegisterSchema";
 
-export default async function CreateUser(data: RegisterFormData) {
+import { login } from "@/api/services/auth.service";
+import { LoginFormData } from "@/components/auth/login/LoginForm";
+
+export default async function LoginUser(data: LoginFormData) {
     try {
-        const response = await register(data);
+        const response = await login(data);
 
         if (response.statusMsg === 'fail') {
             return {
@@ -15,7 +16,7 @@ export default async function CreateUser(data: RegisterFormData) {
 
         return {
             success: true,
-            message: 'Account created successfully',
+            message: 'Login successfully',
         };
 
     } catch (error) {

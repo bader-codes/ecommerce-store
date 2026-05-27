@@ -1,5 +1,5 @@
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { RegisterFormData } from "./RegisterSchema";
+import { RegisterFormData } from "../schemas/RegisterSchema";
 import { Control, Controller } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 

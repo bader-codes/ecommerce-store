@@ -1,5 +1,5 @@
 "use client";
-import { RegisterFormData, RegisterSchema } from "./RegisterSchema";
+import { RegisterFormData, RegisterSchema } from "../schemas/RegisterSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerFields } from "./registerFields";
 import CreateUser from "@/app/actions/register";
@@ -43,7 +43,6 @@ export default function SignupForm() {
 
         } else {
             toast.error(registerResponse.message, {
-
                 position: "top-center",
             })
         }
