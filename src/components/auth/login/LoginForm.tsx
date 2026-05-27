@@ -2,30 +2,20 @@
 
 import LoginInputField from "@/components/ui/LoginInputField";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { login } from "@/api/services/auth.service";
+import { loginSchema } from "../schemas/LoginSchema";
+import { useRouter } from "next/navigation";
+import LoginUser from "@/app/actions/login";
 import { useForm } from "react-hook-form";
 import { MdEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
+import { toast } from "react-toastify";
 import { Input } from "@base-ui/react";
-import { useState } from "react";
 import { z } from "zod";
-
-const loginSchema = z.object({
-    email: z
-        .string()
-        .min(1, "Email is required")
-        .email("Invalid email address"),
-
-    password: z
-        .string()
-        .min(8, "Password must be at least 8 characters"),
-});
 
 export type LoginFormData = z.infer<typeof loginSchema>;
 
 export default function LoginForm() {
-
-    const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
 
     const form = useForm<LoginFormData>({
         resolver: zodResolver(loginSchema),
@@ -39,24 +29,31 @@ export default function LoginForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isSubmitting },
     } = form;
 
-    async function onSubmit(data: LoginFormData) {
-        try {
-            const response = await login(data);
+    // Handle form submit
+    async function Submit(data: LoginFormData) {
+        const loginResponse = await LoginUser(data);
 
-            console.log(response);
-        } catch (error) {
-            if (error instanceof Error) {
-                setError(error.message);
-            }
+        if (loginResponse.success) {
+
+            toast.success(loginResponse.message, {
+                position: "top-center",
+            });
+
+            // Redirect user immediately after successful registration
+            setTimeout(() => router.push('/'), 500);
+
+        } else {
+            toast.error(loginResponse.message, {
+                position: "top-center",
+            })
         }
     }
 
     return (
         <>
-
             <div className="relative my-6">
                 <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-gray-200"></div>
@@ -66,7 +63,7 @@ export default function LoginForm() {
                 </div>
             </div>
 
-            <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            <form className="space-y-6" onSubmit={handleSubmit(Submit)}>
                 <LoginInputField
                     register={register('email')}
                     icon={<MdEmail />}
@@ -87,12 +84,6 @@ export default function LoginForm() {
                     error={errors.password?.message}
                 />
 
-                {
-                    error !== null && <p className="text-red-500 text-sm mt-2">
-                        {error}
-                    </p>
-                }
-
                 <div className="flex items-center justify-between">
                     <label htmlFor="keep-login" className="flex items-center">
                         <input id="keep-login" type="checkbox" className="h-4 w-4 text-green-600 accent-green-600 border-2 border-gray-300 rounded focus:ring-primary-500" />
@@ -100,9 +91,8 @@ export default function LoginForm() {
                     </label>
                 </div>
 
-                <Input type="submit" className="w-full bg-green-600 text-white py-3 px-4 rounded-xl hover:bg-green-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed" />
+                <Input type="submit" disabled={isSubmitting} className="w-full bg-green-600 hover:cursor-pointer text-white py-3 px-4 rounded-xl hover:bg-green-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed" />
             </form>
-
         </>
     )
 }

@@ -1,4 +1,4 @@
-import { RegisterFormData } from "./RegisterSchema";
+import { RegisterFormData } from "../schemas/RegisterSchema";
 
 type Field = {
     id: string;
